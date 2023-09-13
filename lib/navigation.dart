@@ -86,7 +86,7 @@ class _FirstPageState extends State<NavigationPage> {
                   height: MediaQuery.of(context).size.height * 0.15,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/route2');
+                      Navigator.pushNamed(context, '/route3');
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -116,7 +116,7 @@ class _FirstPageState extends State<NavigationPage> {
                   height: MediaQuery.of(context).size.height * 0.15,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/route2');
+                      Navigator.pushNamed(context, '/route4');
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

@@ -37,15 +37,6 @@ class _MyHomePageState extends State<MorpionGamePage> {
       }
     });
   }
-
-  void _displayWinningMessage(String joueur) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('$joueur a gagné !'),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +69,7 @@ class _MyHomePageState extends State<MorpionGamePage> {
                               text: "Au tour du ",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 30,
+                                fontSize: 25,
                                 color: Colors.black, // Couleur constante ( qui ne changera pas ) pour "Au tour du"
                               ),
                             ),
@@ -105,7 +96,7 @@ class _MyHomePageState extends State<MorpionGamePage> {
                           : "",
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontSize: 15  ,
                         color: Colors.black,
                       ),
                     ),])),

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'splashscreen.dart';
 import 'navigation.dart';
-import 'Jeu 1/morpion.dart';
-import 'Jeu 2/puissanceIV.dart';
+import 'Morpion/morpion.dart';
+import 'Puissance4/puissance4.dart';
+import 'Dames/dames.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,8 +25,9 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/route1': (BuildContext context) =>
             NavigationPage(title: "Bienvenue sur GameToy !"),
-        '/route2': (BuildContext context) => MorpionGamePage(title: 'Jeu 1'),
-        '/route3': (BuildContext context) => PowerIVGamePage(title: 'Jeu 2'),
+        '/route2': (BuildContext context) => MorpionGamePage(title: 'Morpion'),
+        '/route3': (BuildContext context) => PowerIVGamePage(title: 'Puissance4'),
+        '/route4': (BuildContext context) => DamesGamePage(title: 'Dames'),
       },
     );
   }
