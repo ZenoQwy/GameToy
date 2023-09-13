@@ -33,9 +33,8 @@ class _FirstPageState extends State<NavigationPage> {
             ),
           ),
           Padding(
-              padding: EdgeInsets.fromLTRB(0,15,0,30),
-              child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              padding: EdgeInsets.fromLTRB(0, 15, 0, 30),
+              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const Text(
                   "Let's play !",
                   textAlign: TextAlign.center,
@@ -51,56 +50,95 @@ class _FirstPageState extends State<NavigationPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                  padding: EdgeInsets.all(5),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.30,
-                    height: MediaQuery.of(context).size.height * 0.15,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/route2');
-                        },
-                        child: const Text(
+                padding: EdgeInsets.all(5),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.30,
+                  height: MediaQuery.of(context).size.height * 0.15,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/route2');
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/morpion.png',
+                          height: 60,
+                        ),
+                        const Text(
                           "Morpion",
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                         ),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.resolveWith(
-                                (states) => Colors.red))),
-                  )),
+                      ],
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith(
+                        (states) => Colors.red,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               Padding(
-                  padding: EdgeInsets.all(5),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.30,
-                    height: MediaQuery.of(context).size.height * 0.15,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/route3');
-                        },
-                        child: const Text(
-                          "Puissance 4",
-                          style: TextStyle(color: Colors.black),
+                padding: EdgeInsets.all(5),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.30,
+                  height: MediaQuery.of(context).size.height * 0.15,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/route2');
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/puissance4.png',
+                          height: 60,
                         ),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.resolveWith(
-                                (states) => Colors.red))),
-                  )),
+                        const Text(
+                          "Puissance4",
+                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize:13),
+                        ),
+                      ],
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith(
+                        (states) => Colors.red,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               Padding(
-                  padding: EdgeInsets.all(5),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.30,
-                    height: MediaQuery.of(context).size.height * 0.15,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/route4');
-                        },
-                        child: const Text(
-                          "test",
-                          style: TextStyle(color: Colors.black),
+                padding: EdgeInsets.all(5),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.30,
+                  height: MediaQuery.of(context).size.height * 0.15,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/route2');
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/dames.png',
+                          height: 60,
                         ),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.resolveWith(
-                                (states) => Colors.red))),
-                  )),
+                        const Text(
+                          "Dames",
+                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
+                        ),
+                      ],
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith(
+                        (states) => Colors.red,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           )
         ],
