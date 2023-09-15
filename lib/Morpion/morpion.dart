@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'class/Partie.dart';
 
 class MorpionGamePage extends StatefulWidget {
@@ -8,12 +9,27 @@ class MorpionGamePage extends StatefulWidget {
   final String title;
   @override
   State<MorpionGamePage> createState() => _MyHomePageState();
+
 }
+final player = AudioPlayer();
+
+
 
 class _MyHomePageState extends State<MorpionGamePage> {
   Color _backgroundColor = Colors.blue.withOpacity(1);
-
   Partie _partie = Partie();
+
+  void _playSound() {
+      player.play(AssetSource('sounds/yeet.mp3'));
+  }
+
+  void _playwin() {
+    player.play(AssetSource('musics/win.mp3'));
+  }
+
+  void _stopsound() {
+    player.stop();
+  }
 
   void _resetJeu() {
     setState(() {
@@ -25,18 +41,20 @@ class _MyHomePageState extends State<MorpionGamePage> {
   void _buttonPressedd(int x, int y) {
     setState(() {
       if (!_partie.estTerminee()) {
-        print("----------------------Tour ${_partie.getTours()}----------------------------");
-        print("player1 : ${_partie.getPlayer1()}");
+        _playSound();
         _partie.jouer(x, y);
-        _backgroundColor = _partie.getPlayer1() ? Colors.blue.withOpacity(1) : Colors.red.withOpacity(1);
-
-        print("partie terminée : ${_partie.estTerminee()}");
-        print("Gagnant : ${_partie.getGagnant()}");
-        print("Egalité : ${_partie.estEgalite()}");
-        print("----------------------------------------------------------------------");
+        if (_partie.estTerminee()) {
+          _playwin();
+        }
+        _backgroundColor =
+        _partie.getPlayer1() ? Colors.blue.withOpacity(1) : Colors.red
+            .withOpacity(1);
       }
     });
   }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,19 +105,19 @@ class _MyHomePageState extends State<MorpionGamePage> {
                     ), // Espacement entre les deux textes
                     const Padding(padding: EdgeInsets.only(top: 10)),
                     RichText(
-                      text:  TextSpan(
-                        children: [
-                          TextSpan( text : _partie.estTerminee()
-                          ? _partie.getGagnant() == "Egalité"
-                          ? "Match nul"
-                          : "${_partie.getGagnant() == "Joueur 1" ? "Joueur 1" : "Joueur 2"} remporte la partie"
-                          : "",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15  ,
-                        color: Colors.black,
-                      ),
-                    ),])),
+                        text:  TextSpan(
+                            children: [
+                              TextSpan( text : _partie.estTerminee()
+                                  ? _partie.getGagnant() == "Egalité"
+                                  ? "Match nul"
+                                  : "${_partie.getGagnant() == "Joueur 1" ? "Joueur 1" : "Joueur 2"} remporte la partie"
+                                  : "",
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15  ,
+                                  color: Colors.black,
+                                ),
+                              ),])),
                     const Padding(padding: EdgeInsets.only(bottom: 10)),
                     for (int row = 0; row < 3; row++)
                       Row(
@@ -140,7 +158,10 @@ class _MyHomePageState extends State<MorpionGamePage> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color?>(Colors.black),
                       ),
-                      onPressed: _resetJeu,
+                      onPressed: () {
+                        _resetJeu();
+                        _stopsound();
+                      },
                       child: const Text(
                         'REJOUER',
                         style: TextStyle(
