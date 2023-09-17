@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         '/route1': (BuildContext context) =>
             NavigationPage(title: "Bienvenue sur GameToy !"),
         '/route2': (BuildContext context) => MorpionGamePage(title: 'Morpion'),
-        '/route3': (BuildContext context) => PowerIVGamePage(title: 'Puissance4'),
+        '/route3': (BuildContext context) => PuissanceIVGamePage(title: 'Puissance4'),
         '/route4': (BuildContext context) => DamesGamePage(title: 'Dames'),
       },
     );

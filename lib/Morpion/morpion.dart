@@ -20,11 +20,11 @@ class _MyHomePageState extends State<MorpionGamePage> {
   Partie _partie = Partie();
 
   void _playSound() {
-      player.play(AssetSource('sounds/yeet.mp3'));
+      player.play(AssetSource('sounds/clic.mp3'));
   }
 
   void _playwin() {
-    player.play(AssetSource('musics/win.mp3'));
+    player.play(AssetSource('sounds/win.mp3'));
   }
 
   void _stopsound() {

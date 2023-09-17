@@ -13,29 +13,6 @@ class Plateau {
     return _plateau[x][y];
   }
 
-  afficher() {
-    print("   Morpion");
-    print("┏━━━┳━━━┳━━━┓");
-    for (int i = 0; i < _plateau.length; i++) {
-      stdout.write("┃ ");
-      for (int j = 0; j < _plateau.length; j++) {
-        if (_plateau[i][j].estvide() == true) {
-          stdout.write(" ");
-          stdout.write(" ┃ ");
-        } else {
-          stdout.write(_plateau[i][j].getvaleur());
-          stdout.write(" ┃ ");
-        }
-      }
-      print("");
-      if (i != 2) {
-        print("┣━━━╋━━━╋━━━┫");
-      } else {
-        print("┗━━━┻━━━┻━━━┛");
-      }
-    }
-  }
-
   bool ligne_gagnante() {
     bool reponse = false;
     /*Si l'une des 3 colonnes est gagnante
