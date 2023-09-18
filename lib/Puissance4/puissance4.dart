@@ -1,6 +1,6 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:game_toy/navigation.dart';
+import 'package:flutter/material.dart';
 import 'class/Partie.dart';
 
 class PuissanceIVGamePage extends StatefulWidget {
@@ -43,7 +43,6 @@ class _MyHomePageState extends State<PuissanceIVGamePage> {
       if (!_partie.estTerminee()) {
         _playSound();
         _partie.jouer(col);
-        _partie.getPlateau().afficher();
         if (_partie.estTerminee()) {
           _playwin();
         }
@@ -61,6 +60,18 @@ class _MyHomePageState extends State<PuissanceIVGamePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        leading: IconButton(
+          icon:
+          Icon(Icons.arrow_back), // Icône de retour (flèche vers la gauche)
+          onPressed: () {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => NavigationPage(
+                    title: 'GameToy - Accueil'), // Remplacez par le titre approprié
+              ),
+            );
+          },
+        ),
       ),
       body: Stack(
         children: [

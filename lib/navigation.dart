@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:game_toy/Dames/damesSplashScreen.dart';
+import 'package:game_toy/Morpion/morpionSplashScreen.dart';
+import 'package:game_toy/Puissance4/puissance4SplashScreen.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({Key? key, required this.title}) : super(key: key);
@@ -56,7 +59,11 @@ class _FirstPageState extends State<NavigationPage> {
                   height: MediaQuery.of(context).size.height * 0.15,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/route2');
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => MorpionSplashScreen(), // Nouvelle page de splashscreen pour le morpion
+                        ),
+                      );
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -86,7 +93,11 @@ class _FirstPageState extends State<NavigationPage> {
                   height: MediaQuery.of(context).size.height * 0.15,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/route3');
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => PuissanceIVSplashScreenState(), // Nouvelle page de splashscreen pour le morpion
+                        ),
+                      );
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -116,7 +127,11 @@ class _FirstPageState extends State<NavigationPage> {
                   height: MediaQuery.of(context).size.height * 0.15,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/route4');
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => DamesSplashScreen(), // Nouvelle page de splashscreen pour le morpion
+                        ),
+                      );
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

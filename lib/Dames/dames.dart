@@ -1,6 +1,5 @@
-import 'dart:io';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:game_toy/navigation.dart';
 
 class DamesGamePage extends StatefulWidget {
   const DamesGamePage({super.key, required this.title});
@@ -16,6 +15,18 @@ class _ThirdPageState extends State<DamesGamePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+          leading: IconButton(
+            icon:
+            Icon(Icons.arrow_back), // Icône de retour (flèche vers la gauche)
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => NavigationPage(
+                      title: 'GameToy - Accueil'), // Remplacez par le titre approprié
+                ),
+              );
+            },
+          ),
         ),
         body: Column(children: <Widget>[
           Container(

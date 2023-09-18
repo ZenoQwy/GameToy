@@ -1,17 +1,16 @@
-import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'dart:async';
-
+import 'package:flutter/material.dart';
 import 'navigation.dart';
+import 'dart:async';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title});
   final String title;
   @override
-  SplashScreenState createState() => SplashScreenState();
+  HomeSplashScreenState createState() => HomeSplashScreenState();
 }
 
-class SplashScreenState extends State<MyHomePage> {
+class HomeSplashScreenState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
