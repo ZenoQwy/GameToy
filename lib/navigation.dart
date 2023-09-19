@@ -19,6 +19,91 @@ class _FirstPageState extends State<NavigationPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.red,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    'assets/images/gametoy_logo.png',
+                    height: 100,
+                  ),
+                  Text(
+                    'Liste des jeux',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home,size: 30,), // Icône de maison
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+                // Actions à effectuer lorsque "Home" est sélectionné
+              },
+            ),
+            IntrinsicWidth(
+              child: Column(
+                children: [
+                  Padding(padding: EdgeInsets.fromLTRB(0, 25, 0, 0)),
+                  Text('Les jeux disponibles',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
+                  Divider(
+                    color: Colors.black,
+                    thickness: 2,
+                  ),
+                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10)),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/morpion.png',height: 30,), // Icône de maison
+              title: Text('Morpion'),
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => MorpionSplashScreen(), // Nouvelle page de splashscreen pour le morpion
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/puissance4.png',height: 30,), // Icône de maison
+              title: Text('Puissance 4'),
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => PuissanceIVSplashScreenState(), // Nouvelle page de splashscreen pour le morpion
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/dames.png',height: 30,), // Icône de maison
+              title: Text('Dames'),
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => DamesSplashScreen() , // Nouvelle page de splashscreen pour le morpion
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+
+
+
       body: Column(
         children: <Widget>[
           Container(
@@ -29,7 +114,7 @@ class _FirstPageState extends State<NavigationPage> {
               children: [
                 Expanded(
                   child: Image.asset(
-                    'assets/images/gametoy.png', // logo de l'appli
+                    'assets/images/gametoy_logo.png', // logo de l'appli
                   ),
                 )
               ],

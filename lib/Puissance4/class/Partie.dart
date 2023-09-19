@@ -45,7 +45,6 @@ class Partie {
         } else {
           _plateau.getcase(row, col).setelement("O");
         }
-        _plateau.afficher();
 
         if (_plateau.ligne_gagnante()) {
           _terminee = true;

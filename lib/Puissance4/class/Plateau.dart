@@ -34,14 +34,14 @@ class Plateau {
     int lignes = _plateau.length;
     int colonnes = _plateau[0].length;
 
-    // Vérification des lignes horizontales
-    for (int row = 0; row < lignes; row++) {
-      for (int col = 0; col <= colonnes - 4; col++) {
-        String couleur = _plateau[row][col].getvaleur();
+    // Vérification des horizontales gagnantes
+    for (int x = 0; x < lignes; x++) {
+      for (int y = 0; y <= colonnes - 4; y++) {
+        String couleur = _plateau[x][y].getvaleur();
         if (couleur != "") {
           bool ligneGagnante = true;
           for (int i = 1; i < 4; i++) {
-            if (_plateau[row][col + i].getvaleur() != couleur) {
+            if (_plateau[x][y + i].getvaleur() != couleur) {
               ligneGagnante = false;
               break;
             }
@@ -53,14 +53,14 @@ class Plateau {
       }
     }
 
-    // Vérification des lignes verticales
-    for (int col = 0; col < colonnes; col++) {
-      for (int row = 0; row <= lignes - 4; row++) {
-        String couleur = _plateau[row][col].getvaleur();
+    // Vérification des verticales gagnantes
+    for (int x = 0; x < colonnes; x++) {
+      for (int y = 0; y <= lignes - 4; y++) {
+        String couleur = _plateau[y][x].getvaleur();
         if (couleur != "") {
           bool ligneGagnante = true;
           for (int i = 1; i < 4; i++) {
-            if (_plateau[row + i][col].getvaleur() != couleur) {
+            if (_plateau[y + i][x].getvaleur() != couleur) {
               ligneGagnante = false;
               break;
             }
@@ -72,14 +72,14 @@ class Plateau {
       }
     }
 
-    // Vérification des lignes diagonales (de haut en bas à gauche)
-    for (int row = 0; row <= lignes - 4; row++) {
-      for (int col = 0; col <= colonnes - 4; col++) {
-        String couleur = _plateau[row][col].getvaleur();
+    // Vérification des diagonales gagnantes (de haut en bas à gauche)
+    for (int x = 0; x <= lignes - 4; x++) {
+      for (int y = 0; y <= colonnes - 4; y++) {
+        String couleur = _plateau[x][y].getvaleur();
         if (couleur != "") {
           bool ligneGagnante = true;
           for (int i = 1; i < 4; i++) {
-            if (_plateau[row + i][col + i].getvaleur() != couleur) {
+            if (_plateau[x + i][y + i].getvaleur() != couleur) {
               ligneGagnante = false;
               break;
             }
@@ -91,14 +91,14 @@ class Plateau {
       }
     }
 
-    // Vérification des lignes diagonales (de haut en bas à droite)
-    for (int row = 0; row <= lignes - 4; row++) {
-      for (int col = 3; col < colonnes; col++) {
-        String couleur = _plateau[row][col].getvaleur();
+    // Vérification des diagonales gagnantes (de haut en bas à droite)
+    for (int x = 0; x <= lignes - 4; x++) {
+      for (int y = 3; y < colonnes; y++) {
+        String couleur = _plateau[x][y].getvaleur();
         if (couleur != "") {
           bool ligneGagnante = true;
           for (int i = 1; i < 4; i++) {
-            if (_plateau[row + i][col - i].getvaleur() != couleur) {
+            if (_plateau[x + i][y - i].getvaleur() != couleur) {
               ligneGagnante = false;
               break;
             }

@@ -37,7 +37,7 @@ class _ThirdPageState extends State<DamesGamePage> {
               children: [
                 Expanded(
                   child: Image.asset(
-                    'assets/images/gametoy.png', // Logo de l'appli
+                    'assets/images/gametoy_logo.png', // Logo de l'appli
                   ),
                 )
               ],

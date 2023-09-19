@@ -30,7 +30,7 @@ class HomeSplashScreenState extends State<MyHomePage> {
         color: Colors.red,
         child: Stack(children: [
           Center(
-            child: Image.asset("assets/images/gametoy.png"),
+            child: Image.asset("assets/images/gametoy_logo.png"),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,

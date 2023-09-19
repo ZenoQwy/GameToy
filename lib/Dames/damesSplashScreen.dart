@@ -5,10 +5,10 @@ import 'dart:async';
 
 class DamesSplashScreen extends StatefulWidget {
   @override
-  _DamesSplashScreen createState() => _DamesSplashScreen();
+  _DamesSplashScreenState createState() => _DamesSplashScreenState();
 }
 
-class _DamesSplashScreen extends State<DamesSplashScreen> {
+class _DamesSplashScreenState extends State<DamesSplashScreen> {
   @override
   void initState() {
     super.initState();
