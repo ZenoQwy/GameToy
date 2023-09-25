@@ -1,6 +1,3 @@
-import 'dart:io';
-import 'A Functions.dart';
-
 class Joueur {
   int _numero;
   String _symbole;
@@ -19,3 +16,4 @@ class Joueur {
     this._symbole = symbole;
   }
 }
+

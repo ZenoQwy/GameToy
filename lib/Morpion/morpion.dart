@@ -63,7 +63,8 @@ class _MyHomePageState extends State<MorpionGamePage> {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
                 builder: (context) => NavigationPage(
-                    title: 'GameToy - Accueil'), // Remplacez par le titre approprié
+                    title:
+                        'GameToy - Accueil'), // Remplacez par le titre approprié
               ),
             );
           },
@@ -85,7 +86,7 @@ class _MyHomePageState extends State<MorpionGamePage> {
                 width: MediaQuery.of(context).size.width *
                     0.85, // Largeur de la grille
                 height: MediaQuery.of(context).size.height *
-                    0.75, // Hauteur de la grille
+                    0.65, // Hauteur de la grille
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

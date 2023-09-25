@@ -4,7 +4,7 @@ import 'splashscreen.dart';
 import 'navigation.dart';
 import 'Morpion/morpion.dart';
 import 'Puissance4/puissance4.dart';
-import 'Dames/dames.dart';
+import 'MillesBornes/millesBornes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
             NavigationPage(title: "Bienvenue sur GameToy !"),
         '/route2': (BuildContext context) => MorpionGamePage(title: 'Morpion'),
         '/route3': (BuildContext context) => PuissanceIVGamePage(title: 'Puissance4'),
-        '/route4': (BuildContext context) => DamesGamePage(title: 'Dames'),
+        '/route4': (BuildContext context) => MilleBornesPage(title: '1000 Bornes'),
       },
     );
   }

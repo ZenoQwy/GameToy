@@ -1,14 +1,14 @@
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:flutter/material.dart';
-import 'dames.dart';
+import 'millesBornes.dart';
 import 'dart:async';
 
-class DamesSplashScreen extends StatefulWidget {
+class MillesBornesSplashScreen extends StatefulWidget {
   @override
-  _DamesSplashScreenState createState() => _DamesSplashScreenState();
+  _MillesBornesSplashScreenState createState() => _MillesBornesSplashScreenState();
 }
 
-class _DamesSplashScreenState extends State<DamesSplashScreen> {
+class _MillesBornesSplashScreenState extends State<MillesBornesSplashScreen> {
   @override
   void initState() {
     super.initState();
@@ -17,7 +17,7 @@ class _DamesSplashScreenState extends State<DamesSplashScreen> {
           () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => DamesGamePage(title: 'Dames'),
+            builder: (context) => MilleBornesPage(title: '1000 bornes'),
           ),
         );
       },
@@ -32,7 +32,7 @@ class _DamesSplashScreenState extends State<DamesSplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/images/dames.png",
+            Image.asset("assets/images/1000bornes.png",
               height: MediaQuery.of(context).size.height * 0.40,),
             Padding(padding: EdgeInsets.only(bottom: 75)),
             LoadingAnimationWidget.prograssiveDots(

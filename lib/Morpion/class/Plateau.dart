@@ -1,6 +1,4 @@
-import 'dart:io';
-import 'A Functions.dart';
-import 'Case.dart';
+  import 'Case.dart';
 
 class Plateau {
   List<List<Case>> _plateau = List.generate(3, (i) => List.generate(3, (j) => Case("")));

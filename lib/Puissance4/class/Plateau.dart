@@ -25,9 +25,6 @@ class Plateau {
       }
       print("");
     }
-    print("");
-    print("------------------------------------------------------------");
-    print("");
   }
 
   bool ligne_gagnante() {

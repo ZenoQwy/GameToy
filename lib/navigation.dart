@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:game_toy/Dames/damesSplashScreen.dart';
+import 'package:game_toy/MillesBornes/millesBornesSplashScreen.dart';
 import 'package:game_toy/Morpion/morpionSplashScreen.dart';
 import 'package:game_toy/Puissance4/puissance4SplashScreen.dart';
 
@@ -32,14 +32,7 @@ class _FirstPageState extends State<NavigationPage> {
                 children: [
                   Image.asset(
                     'assets/images/gametoy_logo.png',
-                    height: 100,
-                  ),
-                  Text(
-                    'Liste des jeux',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
+                    height: 120,
                   ),
                 ],
               ),
@@ -88,12 +81,12 @@ class _FirstPageState extends State<NavigationPage> {
               },
             ),
             ListTile(
-              leading: Image.asset('assets/images/dames.png',height: 30,), // Icône de maison
-              title: Text('Dames'),
+              leading: Image.asset('assets/images/1000bornes.png',height: 30,), // Icône de maison
+              title: Text('1000 bornes'),
               onTap: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => DamesSplashScreen() , // Nouvelle page de splashscreen pour le morpion
+                    builder: (context) => MillesBornesSplashScreen() , // Nouvelle page de splashscreen pour le morpion
                   ),
                 );
               },
@@ -157,9 +150,10 @@ class _FirstPageState extends State<NavigationPage> {
                           'assets/images/morpion.png',
                           height: 60,
                         ),
+                        Padding(padding: EdgeInsets.only(bottom: 7)),
                         const Text(
                           "Morpion",
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize:15  ),
                         ),
                       ],
                     ),
@@ -191,9 +185,10 @@ class _FirstPageState extends State<NavigationPage> {
                           'assets/images/puissance4.png',
                           height: 60,
                         ),
+                        Padding(padding: EdgeInsets.only(bottom: 7)),
                         const Text(
                           "Puissance4",
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize:13),
+                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize:15),
                         ),
                       ],
                     ),
@@ -214,7 +209,7 @@ class _FirstPageState extends State<NavigationPage> {
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
-                          builder: (context) => DamesSplashScreen(), // Nouvelle page de splashscreen pour le morpion
+                          builder: (context) => MillesBornesSplashScreen(), // Nouvelle page de splashscreen pour le morpion
                         ),
                       );
                     },
@@ -222,11 +217,12 @@ class _FirstPageState extends State<NavigationPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'assets/images/dames.png',
+                          'assets/images/1000bornes.png',
                           height: 60,
                         ),
+                        Padding(padding: EdgeInsets.only(bottom: 7)),
                         const Text(
-                          "Dames",
+                          "1000 bornes",
                           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
                         ),
                       ],

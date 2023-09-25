@@ -1,5 +1,3 @@
-import 'dart:io';
-import 'A Functions.dart';
 import 'Plateau.dart';
 
 class Partie {
