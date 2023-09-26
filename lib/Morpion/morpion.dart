@@ -1,6 +1,6 @@
 import 'package:game_toy/navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
+//import 'package:audioplayers/audioplayers.dart';
 import 'class/Partie.dart';
 
 class MorpionGamePage extends StatefulWidget {
@@ -11,22 +11,22 @@ class MorpionGamePage extends StatefulWidget {
   State<MorpionGamePage> createState() => _MyHomePageState();
 }
 
-final player = AudioPlayer();
+//final player = AudioPlayer();
 
 class _MyHomePageState extends State<MorpionGamePage> {
   Color _backgroundColor = Colors.blue.withOpacity(1);
   Partie _partie = Partie();
 
   void _playSound() {
-    player.play(AssetSource('sounds/clic.mp3'));
+    //player.play(AssetSource('sounds/clic.mp3'));
   }
 
   void _playwin() {
-    player.play(AssetSource('sounds/win.mp3'));
+    //player.play(AssetSource('sounds/win.mp3'));
   }
 
   void _stopsound() {
-    player.stop();
+    //player.stop();
   }
 
   void _resetJeu() {

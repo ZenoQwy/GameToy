@@ -17,6 +17,7 @@ dependencies:
   audioplayers: ^5.1.0
   loading_animation_widget:
   cupertino_icons: ^1.0.2
+  playing_cards: ^0.4.1+11
 
 
 
@@ -33,6 +34,7 @@ flutter:
     - assets/images/
     - assets/sounds/
     - assets/musics/
+    - assets/images/cartes/
 
 flutter_icons:
   image_path: "assets/images/dames.png"

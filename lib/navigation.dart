@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_toy/BlackJack/blackjackSplashScreen.dart';
 import 'package:game_toy/MillesBornes/millesBornesSplashScreen.dart';
 import 'package:game_toy/Morpion/morpionSplashScreen.dart';
 import 'package:game_toy/Puissance4/puissance4SplashScreen.dart';
@@ -38,7 +39,10 @@ class _FirstPageState extends State<NavigationPage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home,size: 30,), // Icône de maison
+              leading: Icon(
+                Icons.home,
+                size: 30,
+              ), // Icône de maison
               title: Text('Home'),
               onTap: () {
                 Navigator.pop(context);
@@ -49,7 +53,13 @@ class _FirstPageState extends State<NavigationPage> {
               child: Column(
                 children: [
                   Padding(padding: EdgeInsets.fromLTRB(0, 25, 0, 0)),
-                  Text('Les jeux disponibles',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
+                  Text(
+                    'Les jeux disponibles',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                  ),
                   Divider(
                     color: Colors.black,
                     thickness: 2,
@@ -59,34 +69,61 @@ class _FirstPageState extends State<NavigationPage> {
               ),
             ),
             ListTile(
-              leading: Image.asset('assets/images/morpion.png',height: 30,), // Icône de maison
+              leading: Image.asset(
+                'assets/images/morpion.png',
+                height: 30,
+              ), // Icône de maison
               title: Text('Morpion'),
               onTap: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => MorpionSplashScreen(), // Nouvelle page de splashscreen pour le morpion
+                    builder: (context) =>
+                        MorpionSplashScreen(), // Nouvelle page de splashscreen pour le morpion
                   ),
                 );
               },
             ),
             ListTile(
-              leading: Image.asset('assets/images/puissance4.png',height: 30,), // Icône de maison
+              leading: Image.asset(
+                'assets/images/puissance4.png',
+                height: 30,
+              ), // Icône de maison
               title: Text('Puissance 4'),
               onTap: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => PuissanceIVSplashScreenState(), // Nouvelle page de splashscreen pour le morpion
+                    builder: (context) =>
+                        PuissanceIVSplashScreenState(), // Nouvelle page de splashscreen pour le morpion
                   ),
                 );
               },
             ),
             ListTile(
-              leading: Image.asset('assets/images/1000bornes.png',height: 30,), // Icône de maison
+              leading: Image.asset(
+                'assets/images/1000bornes.png',
+                height: 30,
+              ), // Icône de maison
               title: Text('1000 bornes'),
               onTap: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => MillesBornesSplashScreen() , // Nouvelle page de splashscreen pour le morpion
+                    builder: (context) =>
+                        MillesBornesSplashScreen(), // Nouvelle page de splashscreen pour le morpion
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Image.asset(
+                'assets/images/1000bornes.png',
+                height: 30,
+              ), // Icône de maison
+              title: Text('Blackjack'),
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        BlackJackSplashScreenState(), // Nouvelle page de splashscreen pour le morpion
                   ),
                 );
               },
@@ -94,9 +131,6 @@ class _FirstPageState extends State<NavigationPage> {
           ],
         ),
       ),
-
-
-
       body: Column(
         children: <Widget>[
           Container(
@@ -115,7 +149,8 @@ class _FirstPageState extends State<NavigationPage> {
           ),
           Padding(
               padding: EdgeInsets.fromLTRB(0, 15, 0, 30),
-              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const Text(
                   "Let's play !",
                   textAlign: TextAlign.center,
@@ -139,7 +174,8 @@ class _FirstPageState extends State<NavigationPage> {
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
-                          builder: (context) => MorpionSplashScreen(), // Nouvelle page de splashscreen pour le morpion
+                          builder: (context) =>
+                              MorpionSplashScreen(), // Nouvelle page de splashscreen pour le morpion
                         ),
                       );
                     },
@@ -153,7 +189,10 @@ class _FirstPageState extends State<NavigationPage> {
                         Padding(padding: EdgeInsets.only(bottom: 7)),
                         const Text(
                           "Morpion",
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize:15  ),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
                         ),
                       ],
                     ),
@@ -174,7 +213,8 @@ class _FirstPageState extends State<NavigationPage> {
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
-                          builder: (context) => PuissanceIVSplashScreenState(), // Nouvelle page de splashscreen pour le morpion
+                          builder: (context) =>
+                              PuissanceIVSplashScreenState(), // Nouvelle page de splashscreen pour le morpion
                         ),
                       );
                     },
@@ -188,7 +228,10 @@ class _FirstPageState extends State<NavigationPage> {
                         Padding(padding: EdgeInsets.only(bottom: 7)),
                         const Text(
                           "Puissance4",
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize:15),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
                         ),
                       ],
                     ),
@@ -209,7 +252,8 @@ class _FirstPageState extends State<NavigationPage> {
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
-                          builder: (context) => MillesBornesSplashScreen(), // Nouvelle page de splashscreen pour le morpion
+                          builder: (context) =>
+                              BlackJackSplashScreenState(), // Nouvelle page de splashscreen pour le morpion
                         ),
                       );
                     },
@@ -217,13 +261,16 @@ class _FirstPageState extends State<NavigationPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'assets/images/1000bornes.png',
+                          'assets/images/blackjack.png',
                           height: 60,
                         ),
                         Padding(padding: EdgeInsets.only(bottom: 7)),
                         const Text(
-                          "1000 bornes",
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
+                          "BlackJack",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
                         ),
                       ],
                     ),
@@ -236,7 +283,7 @@ class _FirstPageState extends State<NavigationPage> {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
