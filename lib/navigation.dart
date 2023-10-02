@@ -100,22 +100,7 @@ class _FirstPageState extends State<NavigationPage> {
             ),
             ListTile(
               leading: Image.asset(
-                'assets/images/1000bornes.png',
-                height: 30,
-              ), // Icône de maison
-              title: Text('1000 bornes'),
-              onTap: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        MillesBornesSplashScreen(), // Nouvelle page de splashscreen pour le morpion
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: Image.asset(
-                'assets/images/1000bornes.png',
+                'assets/images/blackjack.png',
                 height: 30,
               ), // Icône de maison
               title: Text('Blackjack'),

@@ -1,23 +1,16 @@
-import 'package:flutter/material.dart';
-
 import 'Carte.dart';
 
 class Joueur {
   List<Carte> _main = [
-    Carte("Coeur", "As"),
-    Carte("Coeur", "2"),
-    Carte("Coeur", "3"),
-    Carte("Coeur", "4"),
-    Carte("Coeur", "5"),
-    Carte("Coeur", "6"),
-    Carte("Coeur", "7"),
-    Carte("Coeur", "8"),
-    Carte("Coeur", "9"),
-    Carte("Coeur", "10"),
-    Carte("Coeur", "Valet"),
-    Carte("Coeur", "Reine     "),
-    Carte("Coeur", "Roi"),];
+Carte("Pique", "As"),
+Carte("Pique", "Valet"),
+  ];
+
   Joueur();
+
+  int getLongueurMain(){
+    return this._main.length;
+  }
 
   List<Carte> getMain() {
     return this._main;
@@ -52,5 +45,13 @@ class Joueur {
       }
     }
     return result;
+  }
+
+  void retournerCarte(int i){
+    this._main[i].retourner();
+  }
+
+  void melangerMain(){
+    this._main.shuffle();
   }
 }

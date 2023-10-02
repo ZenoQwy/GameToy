@@ -177,6 +177,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
+  flip_card:
+    dependency: "direct main"
+    description:
+      name: flip_card
+      sha256: "5d4aa58f3983cced0782f4ce45826b7eea36e8e464964d9209dcbc7a87b2292f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -360,14 +368,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
-  playing_cards:
-    dependency: "direct main"
-    description:
-      name: playing_cards
-      sha256: "392d5e42317ec657f6814a282e6bb70942c6599d22dac89cdc741a8b2b095d09"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.4.1+11"
   plugin_platform_interface:
     dependency: transitive
     description:

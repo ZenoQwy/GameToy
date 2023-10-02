@@ -1,7 +1,9 @@
 import 'Carte.dart';
 
 class Croupier {
-  List<Carte> _main = [];
+  List<Carte> _main = [Carte("Coeur", "As"),Carte("Coeur", "As"),
+  ];
+
   Croupier();
 
   List<Carte> getMain() {

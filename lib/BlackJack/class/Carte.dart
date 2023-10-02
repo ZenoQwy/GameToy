@@ -4,6 +4,7 @@ import 'A Functions.dart';
 class Carte {
   String _couleur;
   String _valeur;
+  bool _retournee = true ;
 
   Carte(this._couleur, this._valeur);
 
@@ -21,6 +22,19 @@ class Carte {
 
   String getValeur() {
     return this._valeur;
+  }
+
+  bool estRetournee(){
+    return this._retournee;
+  }
+
+  void setRetournee(bool choice){
+    this._retournee = choice;
+  }
+
+
+  void retourner(){
+    this._retournee = !_retournee;
   }
 
   @override
