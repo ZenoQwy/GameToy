@@ -23,9 +23,70 @@ class _BlackJackState extends State<BlackJackGamePage> {
   double _leftPosition = 0;
   int tempTransition = 800;
   bool CardIsMoving = false;
+  bool animationEnCours = false;
 
-  GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
-  bool shouldAutoFlip = false;
+  @override
+  void initState() {
+    super.initState();
+    // Déclenchez l'animation de pioche automatiquement après un certain délai
+    lancerAnimationPiocheEnBoucle();
+  }
+
+  void lancerAnimationPiocheEnBoucle() {
+    if (!_partie.getPioche().isEmpty()) {
+      if (!animationEnCours) {
+        setState(() {
+          animationEnCours = true;
+        });
+        lancerAnimationPioche();
+        Future.delayed(Duration(seconds: 3), () {
+          setState(() {
+            animationEnCours = false;
+          });
+          // Lancez à nouveau l'animation en boucle
+          lancerAnimationPiocheEnBoucle();
+        });
+      }
+    }else{
+      _resetJeu();
+      Future.delayed(Duration(milliseconds: 500), () {
+        setState(() {
+          lancerAnimationPiocheEnBoucle();
+        });
+      });
+    }
+  }
+
+  void lancerAnimationPioche() {
+    if (CardIsMoving == false) {
+      setState(() {
+        CardIsMoving = true;
+      });
+      Future.delayed(Duration.zero, () {
+        // Utilisez Future.delayed avec une durée nulle pour exécuter du code après le rendu initial
+        if (_partie.getPioche().getCardInPioche(0).estRetournee()) {
+          _partie.getPioche().getCardInPioche(0).retourner();
+        }
+        _leftPosition = (40 - MediaQuery.of(context).size.width / 2).toDouble();
+        Future.delayed(Duration(milliseconds: 800), () {
+          setState(() {
+            if (!_partie.getTable().isEmpty()) {
+              _partie.getTable().reset();
+            }
+            _partie.TableePioche();
+            _leftPosition = 0;
+            tempTransition = 0;
+          });
+          Future.delayed(Duration(milliseconds: 10), () {
+            setState(() {
+              tempTransition = 800;
+              CardIsMoving = false;
+            });
+          });
+        });
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +200,6 @@ class _BlackJackState extends State<BlackJackGamePage> {
     if (!_partie.getTable().isEmpty()) {
       print(_partie.getTable().getCardOnTable(0).toString());
     }
-
   }
 
   void _pioche() {
@@ -251,68 +311,47 @@ class _BlackJackState extends State<BlackJackGamePage> {
   Widget buildPiocheWidget() {
     if (_partie.getPioche().isEmpty()) {
       return Container(
-          width: 82,
-          height: globalCardHeight,
-          decoration: BoxDecoration(
-              border: Border.all(width: 3),
-              borderRadius: BorderRadius.circular(13),
-              color: Colors.green),
-          child: Image.asset("assets/images/cartes/retournee.png"),
-          );
-    } else {
-      return Container(
+        width: 82,
         height: globalCardHeight,
         decoration: BoxDecoration(
             border: Border.all(width: 3),
-            borderRadius: BorderRadius.circular(14),
-            color: Colors.transparent),
-        child: Stack(children: [
-          Image.asset("assets/images/cartes/retournee.png",height: globalCardHeight),
-        AnimatedContainer(
-              height: globalCardHeight,
-              duration: Duration(milliseconds: tempTransition),
-              curve: Curves.easeInOutBack,
-              transform: Matrix4.translationValues(_leftPosition.toDouble(), 0, 0),
-              child: FlipCard(
-                onFlip: () {
-                  if (CardIsMoving == false) {
-                    setState(() {
-                      CardIsMoving = true;
-                      if(_partie.getPioche().getCardInPioche(0).estRetournee()){
-                        _partie.getPioche().getCardInPioche(0).retourner();
-                      }
-                      _leftPosition = (40 - MediaQuery.of(context).size.width / 2).toDouble();
-                      Future.delayed(Duration(milliseconds: 800), () {
-                        setState(() {
-                          if (!_partie.getTable().isEmpty()) {
-                            _partie.getTable().reset();
-                          }
-                          _partie.TableePioche();
-                          _leftPosition = 0;
-                          tempTransition = 0;
-                        });
-                        Future.delayed(Duration(milliseconds: 10), () {
-                          setState(() {
-                            tempTransition = 800;
-                            CardIsMoving = false;
-                          });
-                        });
-                      });
-                    });
-                  }
-                },
-                front: buildSpecificCard(
-                  _partie.getPioche().getCardInPioche(0).getCarte(),
-                  _partie.getPioche().getCardInPioche(0),
-                ),
-                back: buildSpecificCard(
-                  _partie.getPioche().getCardInPioche(0).getCarte(),
-                  _partie.getPioche().getCardInPioche(0),
+            borderRadius: BorderRadius.circular(13),
+            color: Colors.green),
+        child: Image.asset("assets/images/cartes/retournee.png"),
+      );
+    } else {
+      return Container(
+          height: globalCardHeight,
+          decoration: BoxDecoration(
+              border: Border.all(width: 3),
+              borderRadius: BorderRadius.circular(14),
+              color: Colors.transparent),
+          child: Stack(
+            children: [
+              Image.asset("assets/images/cartes/retournee.png",
+                  height: globalCardHeight),
+              AnimatedContainer(
+                height: globalCardHeight,
+                duration: Duration(milliseconds: tempTransition),
+                curve: Curves.easeInOutBack,
+                transform:
+                    Matrix4.translationValues(_leftPosition.toDouble(), 0, 0),
+                child: FlipCard(
+                  onFlip: () {
+                    lancerAnimationPioche();
+                  },
+                  front: buildSpecificCard(
+                    _partie.getPioche().getCardInPioche(0).getCarte(),
+                    _partie.getPioche().getCardInPioche(0),
+                  ),
+                  back: buildSpecificCard(
+                    _partie.getPioche().getCardInPioche(0).getCarte(),
+                    _partie.getPioche().getCardInPioche(0),
+                  ),
                 ),
               ),
-            ),
-        ],)
-      );
+            ],
+          ));
     }
   }
 
