@@ -172,6 +172,7 @@ class _BlackJackState extends State<BlackJackGamePage> {
     if (!_partie.getPioche().isEmpty()) {
       setState(() {
         _partie.joueurPioche();
+        buildPlayerHand();
         print(_partie.getJoueur().getMain().toString());
       });
     }
@@ -204,27 +205,33 @@ class _BlackJackState extends State<BlackJackGamePage> {
         width: double.infinity,
         height: 200.0,
         child: Stack(
-          children: [
-            for (int i = 0; i < _partie.getCroupier().getMain().length; i++)
-              Positioned(
-                left: i * 15.0,
-                child: AnimatedContainer(
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 1),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  duration: Duration(seconds: 1),
-                  child: Text("${_partie.getJoueur().getCardInMain(i).getCarte()}")
-                  /*Image.asset(
-                    'assets/images/cartes/${_partie.getJoueur().getCardInMain(i).getCarte()}.png',
-                    height: 100,
-                  ),*/
-                ),
-              ),
-          ],
+          children: _buildPlayerCards(), // Utilisez une méthode pour créer les cartes du joueur
         ),
       ),
     );
+  }
+
+  List<Widget> _buildPlayerCards() {
+    List<Widget> cards = [];
+    for (int i = 0; i < _partie.getJoueur().getMain().length; i++) {
+      cards.add(
+        Positioned(
+          left: i * 15.0,
+          child: AnimatedContainer(
+            decoration: BoxDecoration(
+              border: Border.all(width: 1),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            duration: Duration(seconds: 1),
+            child: Image.asset(
+              'assets/images/cartes/${_partie.getJoueur().getCardInMain(i).getCarte()}.png',
+              height: 100,
+            ),
+          ),
+        ),
+      );
+    }
+    return cards;
   }
 
   Widget buildCroupierHand() {
