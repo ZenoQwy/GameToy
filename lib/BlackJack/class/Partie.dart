@@ -41,8 +41,12 @@ class Partie {
     return this._table;
   }
 
-  void TableePioche(){
+  void tableePioche(){
     this._table.addToMain(_pioche.piocher());
+  }
+
+  void joueurPioche(){
+    this._joueur.addToMain(_pioche.piocher());
   }
 }
 
